@@ -1,8 +1,24 @@
 # GitHub Enterprise Toolkit for New Enterprise Customers
 
-**Audience:** Enterprise & Regulated Organizations  
-**Platform:** GitHub Enterprise Cloud / Server  
+**Audience:** Enterprise & Regulated Organizations
+**Platform:** GitHub Enterprise Cloud / Server
 **Maturity:** New or Early-Stage Adoption
+
+---
+
+## Table of Contents
+
+1. [Objective](#1-objective)
+2. [Enterprise Risk Landscape](#2-enterprise-risk-landscape)
+3. [Rollout Strategies](#3-rollout-strategies)
+4. [Reference Architecture](#4-reference-architecture)
+5. [Security & Governance Baseline](#5-security--governance-baseline)
+6. [CI/CD Starter Pack](#6-cicd-starter-pack)
+7. [Developer Enablement Toolkit](#7-developer-enablement-toolkit)
+8. [Migration & Adoption Playbook](#8-migration--adoption-playbook)
+9. [Operational Runbook](#9-operational-runbook)
+10. [Customer Readiness Checklist](#10-customer-readiness-checklist)
+11. [Outcome](#11-outcome)
 
 ---
 
@@ -12,11 +28,11 @@ Provide a **secure-by-default, enterprise-scalable GitHub Enterprise foundation*
 
 This toolkit is designed for **consulting delivery** and enables:
 
-- Secure platform onboarding  
-- Strong governance and auditability  
-- CI/CD standardization  
-- Developer productivity at scale  
-- Long-term maintainability  
+- Secure platform onboarding
+- Strong governance and auditability
+- CI/CD standardization
+- Developer productivity at scale
+- Long-term maintainability
 
 ---
 
@@ -41,11 +57,13 @@ This toolkit is designed for **consulting delivery** and enables:
 Establish a hardened GitHub Enterprise baseline **before** broad developer onboarding.
 
 **Pros**
-- Strong governance & audit readiness  
-- Minimal rework later  
+
+- Strong governance & audit readiness
+- Minimal rework later
 
 **Cons**
-- Slightly slower initial onboarding  
+
+- Slightly slower initial onboarding
 
 ---
 
@@ -54,10 +72,12 @@ Establish a hardened GitHub Enterprise baseline **before** broad developer onboa
 Build governance and developer enablement in parallel.
 
 **Pros**
-- Faster adoption  
+
+- Faster adoption
 
 **Cons**
-- Higher coordination overhead  
+
+- Higher coordination overhead
 
 ---
 
@@ -66,14 +86,16 @@ Build governance and developer enablement in parallel.
 Start with 1–2 teams, then standardize.
 
 **Pros**
-- Lower initial friction  
+
+- Lower initial friction
 
 **Cons**
-- Risk of inconsistent patterns  
+
+- Risk of inconsistent patterns
 
 ---
 
-**Selected Approach:**  
+**Selected Approach:**
 ➡️ **Strategy A with early developer golden paths**
 
 ---
@@ -82,7 +104,7 @@ Start with 1–2 teams, then standardize.
 
 ### Organization Structure
 
-```js
+```text
 GitHub Enterprise
 ├── org-platform
 ├── org-shared-services
@@ -117,35 +139,46 @@ GitHub Enterprise
 
 ### Identity & Access
 
-- Enforced SSO (SAML / OIDC)  
-- SCIM provisioning & deprovisioning  
-- Mandatory MFA  
-- No unmanaged personal accounts  
+- Enforced SSO (SAML / OIDC)
+- SCIM provisioning & deprovisioning
+- Mandatory MFA
+- No unmanaged personal accounts
 
 ### Repository Guardrails
 
-- Branch protection on `main`  
-- Required pull request reviews (≥2)  
-- Required status checks  
-- No force pushes  
-- CODEOWNERS enforced  
+- Branch protection on `main`
+- Required pull request reviews (≥2)
+- Required status checks
+- No force pushes
+- CODEOWNERS enforced
 
 ### Platform Security
 
-- Dependabot alerts & updates  
-- Secret scanning with push protection  
-- CodeQL enabled by default  
-- Private vulnerability reporting  
+- Dependabot alerts & updates
+- Secret scanning with push protection
+- CodeQL enabled by default
+- Private vulnerability reporting
 
 ### Audit & Compliance
 
-- Enterprise audit logs enabled  
-- Export to SIEM  
+- Enterprise audit logs enabled
+- Export to SIEM
 - Evidence mapping for:
-  - SOC 2  
-  - ISO 27001  
-  - NIST  
-  - GDPR  
+  - SOC 2
+  - ISO 27001
+  - NIST
+  - GDPR
+
+### Compliance Mapping (Example)
+
+| Control Area | GitHub Capability |
+|-------------|------------------|
+| Access Control | SSO, SCIM, RBAC |
+| Change Management | Pull requests, reviews, audit logs |
+| Secure SDLC | Branch protection, CI checks |
+| Vulnerability Management | Dependabot, CodeQL |
+| Secrets Management | Secret scanning, OIDC |
+| Audit Logging | Enterprise audit logs, SIEM export |
 
 ---
 
@@ -156,8 +189,8 @@ GitHub Enterprise
 - Allow-listed Actions only:
   - `actions/*`
   - `github/*`
-  - Internal Actions repository  
-- Third-party Actions must be SHA-pinned  
+  - Internal Actions repository
+- Third-party Actions must be SHA-pinned
 
 ### Secure CI Template
 
@@ -179,10 +212,12 @@ jobs:
 
 ### Secure CD Principles
 
-- Protected environments with deployment rules
-- Required manual approvals for production
-- OIDC-based cloud authentication (no static credentials)
-- No long-lived secrets (short-lived, federated access only)
+- GitHub Environments used for all deployments (dev, staging, prod)
+- Environment-level protection rules enforced for production
+- Mandatory human approvals for production deployments
+- OIDC-based cloud authentication (AWS/GCP/Azure) with short-lived tokens
+- No long-lived secrets stored in GitHub (no PATs, no static cloud keys)
+- Deployment permissions scoped per environment and per repository
 
 ---
 
@@ -212,7 +247,9 @@ Each template includes:
 
 ### Golden Paths
 
-Opinionated, safe defaults that show developers **how to succeed** on the platform while remaining compliant and secure.
+Opinionated, secure-by-default workflows that provide developers with a clear,
+approved path to production. Golden paths minimize cognitive load, reduce risk,
+and ensure teams remain compliant without slowing delivery.
 
 ---
 
@@ -220,11 +257,11 @@ Opinionated, safe defaults that show developers **how to succeed** on the platfo
 
 ### Migration Phases
 
-1. Discovery & risk classification  
-2. Repository migration  
-3. CI/CD translation  
-4. Security hardening  
-5. Cutover & validation  
+1. Discovery & risk classification
+2. Repository migration
+3. CI/CD translation
+4. Security hardening
+5. Cutover & validation
 
 ### Tooling
 
@@ -290,13 +327,24 @@ Opinionated, safe defaults that show developers **how to succeed** on the platfo
 
 ---
 
+## How to Use This Toolkit
+
+This repository is intended to be used as a consulting starter kit:
+
+1. Clone or fork for each customer engagement
+2. Customize organization structure and policies per customer context
+3. Automate enforcement using GitHub APIs and Terraform
+4. Use this README as the authoritative customer reference
+
+---
+
 ## 11. Outcome
 
 This toolkit provides a **repeatable, audit-ready GitHub Enterprise foundation** that balances:
 
-- Security  
-- Governance  
-- Developer velocity  
-- Long-term scalability  
+- Security
+- Governance
+- Developer velocity
+- Long-term scalability
 
 Designed for **enterprise consulting delivery and regulated environments**.
