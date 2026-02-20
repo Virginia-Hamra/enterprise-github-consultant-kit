@@ -1,0 +1,28 @@
+{
+  "palette": {
+    "seed": 0,
+    "selected": "adaptive-soft",
+    "custom": "e12729-f37324-f8cc1b-72b043-007f4e"
+  },
+  "mixColors": true,
+  "transition": true,
+  "accessibility": {
+    "highTextContrast": false
+  },
+  "knownTags": {
+    "and": 1,
+    "architecture": 2,
+    "copilot": 3,
+    "failure-pattern": 4,
+    "file": 5,
+    "governance": 6,
+    "migration": 7,
+    "playbook": 8,
+    "prompt": 9,
+    "security": 10,
+    "stakeholders": 11,
+    "tooling": 12
+  },
+  "tagColors": {},
+  "_version": 4
+}

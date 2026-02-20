@@ -1,0 +1,286 @@
+{
+  "main": {
+    "id": "f68829d3f9508a72",
+    "type": "split",
+    "children": [
+      {
+        "id": "b61722d459b6c49c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7a211009704dcd59",
+            "type": "leaf",
+            "state": {
+              "type": "mk-space",
+              "state": {
+                "path": "/"
+              },
+              "icon": "lucide-file",
+              "title": "vhamra"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6cec97621cae2326",
+    "type": "split",
+    "children": [
+      {
+        "id": "2980102583d0ead8",
+        "type": "tabs",
+        "dimension": 66.13226452905812,
+        "children": [
+          {
+            "id": "48b523b83130029a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "57d156f24068422a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "c7dd01e49a80037e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "50d2fb180eb4cf94",
+            "type": "leaf",
+            "state": {
+              "type": "mk-path-view",
+              "state": {},
+              "icon": "layout-grid",
+              "title": "Navigator"
+            }
+          }
+        ],
+        "currentTab": 3
+      },
+      {
+        "id": "1b42369e065eed1f",
+        "type": "tabs",
+        "dimension": 33.86773547094188,
+        "children": [
+          {
+            "id": "285fb4cf75a2c954",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "8cfb106300d7a997",
+    "type": "split",
+    "children": [
+      {
+        "id": "a2c05ca262c482a2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f1dd62df0fef837d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Untitled 2.canvas",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Untitled 2"
+            }
+          },
+          {
+            "id": "c53e4ae0f86f4168",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Untitled 2.canvas",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Untitled 2"
+            }
+          },
+          {
+            "id": "b5ec2300bf4c78bf",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "00aa260311a49856",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "92503d008d81af38",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          },
+          {
+            "id": "02225e272495458e",
+            "type": "leaf",
+            "state": {
+              "type": "DICE_ROLLER_VIEW",
+              "state": {},
+              "icon": "dices",
+              "title": "Dice Tray"
+            }
+          }
+        ],
+        "currentTab": 2
+      },
+      {
+        "id": "a193b1a13d919dd8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6f5ea5c9e13aa55e",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-kanban:Create new board": false,
+      "omnisearch:Omnisearch": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-git:Open Git source control": false,
+      "obsidian-importer:Open Importer": false
+    }
+  },
+  "active": "50d2fb180eb4cf94",
+  "lastOpenFiles": [
+    "Untitled 1.canvas",
+    "Untitled 1.base",
+    "Untitled 2.base",
+    "GitHub Enterprise Migration Framework/GitHub Enterprise Migration Framework.md",
+    "GitHub Enterprise Migration Knowledge System.md",
+    "BRAINSTORMING.md",
+    "Tags",
+    "2026-02-20.md",
+    "Untitled 2.canvas",
+    "Untitled 3.base",
+    "Untitled Kanban.md",
+    "GitHub Enterprise Migration Framework/00_Inbox/🏠 Migration Control Center.md",
+    "Untitled.base",
+    "SDLC.md",
+    "Software Architecture Patterns.md",
+    "🌍 Universal DevSecOps Security & Architecture Checklist.md",
+    "GitHub Enterprise Migration Framework/99_Reference/Azure DevOps to GitHub Actions Conversion Prompt.md",
+    "GitHub Enterprise Migration Framework/99_Reference/Runner Architecture Strategy.md",
+    "GitHub Enterprise Migration Framework/99_Reference/Security Sign-off Bottleneck.md",
+    "Prompt - Context Engineering.md",
+    "Prompts -build, break, iterate - ideas.md",
+    "Untitled.canvas",
+    "Untitled.md",
+    "copilot-instructions + skills (with name, scripts, invoke them).md",
+    "Pasted image 20260219120820.png",
+    "Pasted image 20260219120917.png",
+    "Template.md",
+    "GitHub Enterprise Migration Framework/05_Stakeholders/Questioning_Playbook.md",
+    "GitHub Enterprise Migration Framework/07_Copilot_Prompt_Library/Prompt - Technical Discovery Question System.md",
+    "GitHub Enterprise Migration Framework/07_Copilot_Prompt_Library/Prompt Database.md",
+    "GitHub Enterprise Migration Framework/99_Reference/Client A - Migration.md",
+    "GitHub Enterprise Migration Framework/99_Reference/Phased Migration Strategy.md",
+    "GitHub Enterprise Migration Framework/99_Reference/Enterprise Managed Users.md",
+    "GitHub Enterprise Migration Framework/99_Reference/Client B - Discovery.md",
+    "Onboarding/who am i 2.md",
+    "GitHub Enterprise Migration Framework/06_Tooling_Portal/Backlog",
+    "GitHub Enterprise Migration Framework/06_Tooling_Portal/UX_Ideas",
+    "GitHub Enterprise Migration Framework/06_Tooling_Portal/Automation_Modules",
+    "GitHub Enterprise Migration Framework/06_Tooling_Portal/API_Research",
+    "GitHub Enterprise Migration Framework/06_Tooling_Portal/Architecture"
+  ]
+}
