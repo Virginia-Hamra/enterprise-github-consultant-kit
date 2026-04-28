@@ -20,14 +20,27 @@ Comprehensive technical documentation for GitHub Copilot features, workflows, an
 
 - **[Chat and Inline](./chat-and-inline.md)** - Chat interface, inline suggestions, and GitHub.com integration
 - **[Copilot CLI](./copilot-cli.md)** - Command-line interface (v0.0.406+)
+- **[Copilot Spaces](./copilot-spaces.md)** - Curated, persistent context bundles
+- **[Knowledge Bases](./knowledge-bases.md)** - Indexed corpora for grounded chat (Enterprise)
 
 ### Advanced Features
 
 - **[Strategic Workflows](./strategic-workflows.md)** - Advanced patterns and optimization strategies
 - **[Context Windows](./context-windows.md)** - Managing context size and optimization
 - **[Background Agents](./background-agents.md)** - Task delegation and parallel execution
+- **[Copilot Coding Agent](./copilot-coding-agent.md)** - Autonomous, async PR-producing agent
+- **[Copilot Code Review](./copilot-code-review.md)** - Automated PR review and custom instructions
 - **[MCP Servers](./mcp-servers.md)** - Model Context Protocol integrations
+- **[Copilot Extensions](./copilot-extensions.md)** - Marketplace + custom `@extension` chat integrations
 - **[Chat Features](./chat-features.md)** - Instructions, diagnostics, settings, and debug view
+
+### Enterprise Governance & Adoption
+
+- **[Licensing & Policies](./licensing-and-policies.md)** - SKUs, policies, seat management, IP indemnity
+- **[Content Exclusions](./content-exclusions.md)** - Excluding sensitive paths from Copilot
+- **[Metrics & Measurement](./metrics-and-measurement.md)** - Metrics API, DORA, SPACE, ROI
+- **[Adoption Rollout](./adoption-rollout.md)** - 5-phase rollout playbook + champions program
+- **[Responsible AI](./responsible-ai.md)** - Data handling, threat model, regulatory mapping
 
 ## 🚀 Quick Start Guides
 

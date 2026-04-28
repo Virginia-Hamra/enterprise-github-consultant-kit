@@ -9,16 +9,17 @@
 ## Table of Contents
 
 1. [Objective](#1-objective)
-2. [Enterprise Risk Landscape](#2-enterprise-risk-landscape)
-3. [Rollout Strategies](#3-rollout-strategies)
-4. [Reference Architecture](#4-reference-architecture)
-5. [Security & Governance Baseline](#5-security--governance-baseline)
-6. [CI/CD Starter Pack](#6-cicd-starter-pack)
-7. [Developer Enablement Toolkit](#7-developer-enablement-toolkit)
-8. [Migration & Adoption Playbook](#8-migration--adoption-playbook)
-9. [Operational Runbook](#9-operational-runbook)
-10. [Customer Readiness Checklist](#10-customer-readiness-checklist)
-11. [Outcome](#11-outcome)
+2. [Customer Advisory Domains](#2-customer-advisory-domains)
+3. [Enterprise Risk Landscape](#3-enterprise-risk-landscape)
+4. [Rollout Strategies](#4-rollout-strategies)
+5. [Reference Architecture](#5-reference-architecture)
+6. [Security & Governance Baseline](#6-security--governance-baseline)
+7. [CI/CD Starter Pack](#7-cicd-starter-pack)
+8. [Developer Enablement Toolkit](#8-developer-enablement-toolkit)
+9. [Migration & Adoption Playbook](#9-migration--adoption-playbook)
+10. [Operational Runbook](#10-operational-runbook)
+11. [Customer Readiness Checklist](#11-customer-readiness-checklist)
+12. [Outcome](#12-outcome)
 
 ---
 
@@ -36,7 +37,143 @@ This toolkit is designed for **consulting delivery** and enables:
 
 ---
 
-## 2. Enterprise Risk Landscape
+## 2. Customer Advisory Domains
+
+The following are the **canonical delivery domains** an advisory / senior delivery
+engineer covers when onboarding and maturing an enterprise customer on
+**GitHub Enterprise Cloud (GHEC)**, **GitHub Enterprise Cloud with Data Residency
+(EU / AU)**, and **GitHub Enterprise Server (GHES)**. Every customer engagement
+should be mapped against these domains to ensure full coverage.
+
+### 2.1 Platform & Tenancy
+
+| Domain | Scope |
+|--------|-------|
+| Enterprise Account | Enterprise-level setup, ownership, billing, policies |
+| Tenancy Model | GHEC, GHEC + Data Residency (EU, AU), GHES, hybrid |
+| Organization Topology | Org structure, naming, ownership, lifecycle |
+| Verified & Approved Domains | Email domain verification, restrict notifications, member email policies |
+| Enterprise Managed Users (EMU) | Centralized identity, isolated user namespace |
+| Region & Data Residency | Hosting region selection, sovereignty, compliance posture |
+
+### 2.2 Identity & Access Management (IAM)
+
+| Domain | Scope |
+|--------|-------|
+| Authentication | SSO (SAML / OIDC), Entra ID, Okta, Ping, Google Workspace |
+| Provisioning | SCIM user/group lifecycle, JIT, deprovisioning |
+| Authorization | RBAC, custom org roles, custom repository roles |
+| Team Modeling | IdP-group-mapped teams, nested teams, CODEOWNERS |
+| MFA & Passkeys | Enforced 2FA, passkeys, WebAuthn, FIDO2 |
+| Personal Access Tokens | Fine-grained PATs, PAT policies, restrictions |
+| Service Identity | GitHub Apps, OIDC federation, machine accounts |
+
+### 2.3 Security & Advanced Security (GHAS)
+
+| Domain | Scope |
+|--------|-------|
+| Code Security | CodeQL, third-party SAST integration, custom queries |
+| Secret Protection | Secret scanning, push protection, custom patterns, partner program |
+| Software Composition Analysis | Dependabot alerts, updates, version updates, grouped PRs |
+| Supply Chain | Dependency review, SBOM export (SPDX), provenance, attestations |
+| Security Campaigns & Overview | Risk dashboards, campaigns, security configurations |
+| AI Security | Copilot Autofix, AI-assisted triage |
+| Vulnerability Disclosure | Private vulnerability reporting, advisories, CVE workflow |
+
+### 2.4 Governance, Risk & Compliance (GRC)
+
+| Domain | Scope |
+|--------|-------|
+| Policy-as-Code | Repository rulesets, org rulesets, push rules |
+| Repository Standards | Templates, required files, naming, visibility policies |
+| Audit & Logging | Enterprise audit log, Git events, streaming to SIEM (Splunk, Sentinel, S3, Azure Event Hubs, Datadog) |
+| Compliance Mapping | SOC 2, ISO 27001, FedRAMP, NIST 800-53, PCI-DSS, HIPAA, GDPR, DORA |
+| Data Protection | IP allow lists, data residency, retention, legal hold |
+| License Compliance | Seat management, license usage reports, true-up |
+
+### 2.5 CI/CD & Automation (GitHub Actions)
+
+| Domain | Scope |
+|--------|-------|
+| Actions Governance | Allow-listing, SHA pinning, reusable workflows, required workflows |
+| Runners | GitHub-hosted, larger runners, ARM runners, GPU runners, self-hosted, ARC (Actions Runner Controller) |
+| Network Egress | Private networking, Azure VNET injection, private runners |
+| Secrets & OIDC | Environments, OIDC federation to AWS / Azure / GCP / HashiCorp Vault |
+| Deployments | Environments, protection rules, deployment approvals, deployment branch policies |
+| Artifacts & Registries | GitHub Packages (npm, Maven, NuGet, RubyGems, Container Registry) |
+| Release Engineering | Releases, immutable artifacts, attestations, SLSA |
+
+### 2.6 Developer Experience & Productivity
+
+| Domain | Scope |
+|--------|-------|
+| Codespaces | Cloud dev environments, prebuilds, policies, cost controls |
+| Repository Templates | Backend, frontend, library, IaC, mobile, data |
+| Golden Paths | Opinionated, paved-road delivery patterns |
+| Inner Source | Internal visibility, contribution model, fork strategy |
+| Documentation | Pages, Wikis, docs-as-code, ADRs |
+| Search & Discovery | Code search, knowledge sharing |
+
+### 2.7 GitHub Copilot & AI
+
+| Domain | Scope |
+|--------|-------|
+| Copilot Business / Enterprise | Licensing, enablement, policy, content exclusions |
+| Copilot Chat | IDE chat, GitHub.com chat, knowledge bases |
+| Copilot in the CLI | `gh copilot` adoption |
+| Copilot Code Review | Automated PR review, custom instructions |
+| Copilot Workspace / Agents | Agentic workflows, custom agents, MCP servers |
+| Copilot Extensions | Marketplace extensions, custom extensions |
+| Measurement | Copilot Metrics API, adoption, acceptance, impact |
+| Responsible AI | Data handling, IP indemnity, exclusions, transparency |
+
+### 2.8 Migration & Modernization
+
+| Domain | Scope |
+|--------|-------|
+| Source Platform Discovery | Azure DevOps, GitLab, Bitbucket Server/Cloud, GHES, SVN, Perforce, TFVC, CC |
+| Migration Tooling | GitHub Enterprise Importer (GEI), `gh ado2gh`, `gh bbs2gh`, `gh gl2gh`, ECI |
+| Pipeline Modernization | Jenkins → Actions, Azure Pipelines → Actions, GitLab CI → Actions |
+| Identity Migration | Mannequin reconciliation, history preservation |
+| Artifact Migration | Nexus, Artifactory → GitHub Packages |
+| Cutover & Validation | Freeze windows, parallel run, rollback, signoff |
+
+### 2.9 Integrations & Extensibility
+
+| Domain | Scope |
+|--------|-------|
+| Issue Tracking | Jira, Azure Boards, ServiceNow, Linear |
+| Communication | Slack, Microsoft Teams |
+| Observability | Datadog, New Relic, Grafana, Splunk |
+| Cloud Providers | AWS, Azure, GCP via OIDC |
+| GitHub Apps | Custom apps, webhooks, GraphQL/REST APIs |
+| Marketplace | Verified apps, third-party Actions vetting |
+
+### 2.10 Operations & Reliability
+
+| Domain | Scope |
+|--------|-------|
+| Service Health | GitHub Status, incident response, RTO/RPO |
+| Backup & DR | Repository backups, GHES backup utilities, BYOK |
+| Capacity & Cost | Actions minutes, storage, Codespaces, Copilot seats, larger runners |
+| Support Model | Premium / Premium Plus, escalation paths, TAM engagement |
+| Change Management | Release pipelines, GHES upgrade cadence, hotpatches |
+| Observability | Audit log streaming, metrics APIs, webhook event pipelines |
+
+### 2.11 Adoption, Enablement & Change Management
+
+| Domain | Scope |
+|--------|-------|
+| Executive Alignment | Vision, KPIs, business outcomes |
+| Persona Enablement | Developers, maintainers, security, platform, leadership |
+| Training & Certification | GitHub Certifications, internal academy, office hours |
+| Champions Program | Internal advocates, communities of practice |
+| Communications | Rollout plans, FAQs, runbooks, internal portal |
+| Measurement | DORA metrics, SPACE, developer satisfaction, adoption funnels |
+
+---
+
+## 3. Enterprise Risk Landscape
 
 | Risk | Description | Mitigation |
 |-----|------------|------------|
@@ -50,7 +187,7 @@ This toolkit is designed for **consulting delivery** and enables:
 
 ---
 
-## 3. Rollout Strategies
+## 4. Rollout Strategies
 
 ### Strategy A — Security-First Landing Zone (Recommended)
 
@@ -100,7 +237,7 @@ Start with 1–2 teams, then standardize.
 
 ---
 
-## 4. Reference Architecture
+## 5. Reference Architecture
 
 ### Organization Structure
 
@@ -135,7 +272,7 @@ GitHub Enterprise
 
 ---
 
-## 5. Security & Governance Baseline
+## 6. Security & Governance Baseline
 
 ### Identity & Access
 
@@ -182,7 +319,7 @@ GitHub Enterprise
 
 ---
 
-## 6. CI/CD Starter Pack
+## 7. CI/CD Starter Pack
 
 ### Actions Governance
 
@@ -221,7 +358,7 @@ jobs:
 
 ---
 
-## 7. Developer Enablement Toolkit
+## 8. Developer Enablement Toolkit
 
 ### Repository Templates
 
@@ -253,7 +390,7 @@ and ensure teams remain compliant without slowing delivery.
 
 ---
 
-## 8. Migration & Adoption Playbook
+## 9. Migration & Adoption Playbook
 
 ### Migration Phases
 
@@ -271,7 +408,7 @@ and ensure teams remain compliant without slowing delivery.
 
 ---
 
-## 9. Operational Runbook
+## 10. Operational Runbook
 
 ### Day-to-Day Operations
 
@@ -293,7 +430,7 @@ and ensure teams remain compliant without slowing delivery.
 
 ---
 
-## 10. Customer Readiness Checklist
+## 11. Customer Readiness Checklist
 
 ### Identity
 
@@ -338,7 +475,7 @@ This repository is intended to be used as a consulting starter kit:
 
 ---
 
-## 11. Outcome
+## 12. Outcome
 
 This toolkit provides a **repeatable, audit-ready GitHub Enterprise foundation** that balances:
 

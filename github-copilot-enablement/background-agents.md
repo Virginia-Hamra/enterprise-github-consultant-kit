@@ -1,14 +1,17 @@
 # Background Agents
 
 ## Overview
+
 Background agents run autonomously in separate context windows to handle specific tasks without disrupting your main workflow.
 
 ## Types of Background Agents
 
 ### 1. Task Agent
+
 Executes commands with verbose output handling.
 
 **Use Cases:**
+
 - Running test suites
 - Building projects
 - Installing dependencies
@@ -16,15 +19,18 @@ Executes commands with verbose output handling.
 - CI/CD operations
 
 **Characteristics:**
+
 - Returns brief summary on success
 - Shows full output on failure
 - Keeps main context clean
 - Uses Claude Haiku (fast, efficient)
 
 ### 2. Explore Agent
+
 Fast codebase exploration and analysis.
 
 **Use Cases:**
+
 - Finding files by patterns
 - Searching for code snippets
 - Understanding code structure
@@ -32,15 +38,18 @@ Fast codebase exploration and analysis.
 - Quick documentation lookup
 
 **Characteristics:**
+
 - Focused answers under 300 words
 - Uses grep/glob/view tools
 - Safe to call in parallel
 - Uses Claude Haiku (fast)
 
 ### 3. General-Purpose Agent
+
 Full-capability agent for complex tasks.
 
 **Use Cases:**
+
 - Multi-step implementations
 - Complex refactoring
 - Architecture changes
@@ -48,15 +57,18 @@ Full-capability agent for complex tasks.
 - Advanced problem-solving
 
 **Characteristics:**
+
 - Complete toolset access
 - Runs in separate context window
 - Uses Claude Sonnet (high quality)
 - Maintains own conversation state
 
 ### 4. Code Review Agent
+
 Specialized for reviewing code changes.
 
 **Use Cases:**
+
 - Pre-commit reviews
 - PR analysis
 - Security audits
@@ -64,6 +76,7 @@ Specialized for reviewing code changes.
 - Best practice validation
 
 **Characteristics:**
+
 - High signal-to-noise ratio
 - Only flags important issues
 - Never comments on style
@@ -73,6 +86,7 @@ Specialized for reviewing code changes.
 ## Using Background Agents in CLI
 
 ### Task Agent
+
 ```bash
 # Run tests in background
 copilot --agent task -p "Run the test suite"
@@ -85,6 +99,7 @@ copilot --agent task -p "Install npm dependencies"
 ```
 
 ### Explore Agent
+
 ```bash
 # Find authentication files
 copilot --agent explore -p "Find all authentication-related files"
@@ -97,6 +112,7 @@ copilot --agent explore -p "How is the database layer structured?"
 ```
 
 ### General-Purpose Agent
+
 ```bash
 # Complex refactoring
 copilot --agent general-purpose -p "Refactor auth system to use dependency injection"
@@ -106,6 +122,7 @@ copilot --agent general-purpose -p "Add rate limiting to all API endpoints"
 ```
 
 ### Code Review Agent
+
 ```bash
 # Review staged changes
 copilot --agent code-review -p "Review my staged changes"
@@ -117,6 +134,7 @@ copilot --agent code-review -p "Review changes in feature/auth-v2"
 ## Parallel Agent Execution
 
 ### Running Multiple Agents
+
 Background agents can run simultaneously for different tasks:
 
 ```bash
@@ -135,6 +153,7 @@ copilot
 ```
 
 ### Safe Parallel Operations
+
 ```bash
 # Multiple explore agents (read-only, safe)
 copilot --agent explore -p "Find React components" &
@@ -148,6 +167,7 @@ copilot --agent explore -p "Find linting rules"
 ```
 
 ### Avoid Parallel Side Effects
+
 ```bash
 ❌ Don't run in parallel:
 copilot --agent general-purpose -p "Refactor auth.js" &
@@ -162,6 +182,7 @@ copilot --agent general-purpose -p "Refactor user.js"
 ## Workflow Patterns
 
 ### Development Pipeline
+
 ```bash
 #!/bin/bash
 # dev-pipeline.sh
@@ -182,6 +203,7 @@ echo "✅ Pipeline complete"
 ```
 
 ### Pre-Commit Workflow
+
 ```bash
 #!/bin/bash
 # pre-commit.sh
@@ -197,6 +219,7 @@ cat review.md
 ```
 
 ### Research and Implement
+
 ```bash
 # Step 1: Research in background
 copilot --agent explore -p "How is authentication currently implemented?" > auth-analysis.txt
@@ -208,6 +231,7 @@ copilot -p "Add 2FA based on analysis in auth-analysis.txt"
 ## Agent Communication
 
 ### Sharing Context Between Agents
+
 Agents are stateless and independent - use files to share context:
 
 ```bash
@@ -227,6 +251,7 @@ copilot --agent code-review -p "Review feature X"
 ## VS Code Integration
 
 ### Task Tool
+
 In main conversation, delegate to background agents:
 
 ```
@@ -239,7 +264,9 @@ Copilot uses task tool internally:
 ```
 
 ### When Copilot Uses Background Agents
+
 Copilot automatically delegates to background agents for:
+
 - Codebase exploration questions
 - Test execution requests
 - Build commands
@@ -250,24 +277,28 @@ Copilot automatically delegates to background agents for:
 ### When to Use Background Agents
 
 **Use Task Agent When:**
+
 - Running long-running commands
 - Need clean success/failure status
 - Don't want output cluttering main chat
 - Executing CLI operations
 
 **Use Explore Agent When:**
+
 - Quick codebase questions
 - Finding files or patterns
 - Understanding code structure
 - Need fast responses
 
 **Use General-Purpose When:**
+
 - Complex multi-step tasks
 - Need full reasoning capability
 - Task requires multiple tool operations
 - Implementing substantial features
 
 **Use Code Review When:**
+
 - Pre-commit validation
 - PR reviews
 - Security audits
@@ -276,6 +307,7 @@ Copilot automatically delegates to background agents for:
 ### When to Use Main Agent
 
 **Stay in Main Conversation For:**
+
 - Interactive development (back-and-forth)
 - Incremental changes with feedback
 - Learning and explanations
@@ -284,6 +316,7 @@ Copilot automatically delegates to background agents for:
 ## Monitoring Background Agents
 
 ### CLI Output
+
 ```bash
 # Verbose mode shows agent activity
 copilot --log-level debug
@@ -296,6 +329,7 @@ copilot --log-level debug
 ```
 
 ### Status Tracking
+
 ```bash
 # Check running agents
 ps aux | grep copilot
@@ -307,6 +341,7 @@ ls ~/.copilot/logs/agents/
 ## Advanced: Custom Background Agents
 
 ### Define in AGENTS.md
+
 ```markdown
 ## @background-tester
 Role: Continuous test runner
@@ -330,6 +365,7 @@ Background: true
 ```
 
 ### Invoke Custom Background Agents
+
 ```bash
 copilot --agent background-tester -p "Monitor test suite"
 ```
@@ -337,12 +373,14 @@ copilot --agent background-tester -p "Monitor test suite"
 ## Limitations
 
 ### What Background Agents Cannot Do
+
 - Access main conversation context automatically
 - Modify main conversation state
 - Interrupt main conversation
 - Share memory between instances
 
 ### Workarounds
+
 - Use files to share context
 - Pass results back via file references
 - Coordinate via scripts
@@ -351,6 +389,7 @@ copilot --agent background-tester -p "Monitor test suite"
 ## Performance Considerations
 
 ### Resource Usage
+
 ```
 Task Agent: Low CPU, I/O bound
 Explore Agent: Low CPU, fast searches
@@ -359,6 +398,7 @@ Code Review: Medium CPU, analysis focused
 ```
 
 ### Optimization
+
 - Use explore instead of general-purpose for simple queries
 - Use task agent for command execution
 - Batch similar operations
