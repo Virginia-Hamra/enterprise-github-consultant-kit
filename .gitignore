@@ -1,0 +1,24 @@
+# --- Customer-confidential engagement data (NEVER commit) ---
+# Per-customer assessment outputs
+discovery-assessments/engagements/**
+!discovery-assessments/engagements/README.md
+!discovery-assessments/engagements/_TEMPLATE/
+!discovery-assessments/engagements/_TEMPLATE/**
+
+# Per-customer meeting notes
+meetings/meeting-notes/**
+!meetings/meeting-notes/README.md
+!meetings/meeting-notes/_TEMPLATE.md
+
+# --- OS / editor noise ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Local-only / scratch ---
+*.local.md
+scratch/
+tmp/
