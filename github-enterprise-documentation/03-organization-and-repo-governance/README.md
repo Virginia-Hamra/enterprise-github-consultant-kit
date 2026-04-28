@@ -4,6 +4,40 @@
 
 ---
 
+## Advisory Gist
+
+**TL;DR.** Use **rulesets** (not legacy branch protection) at the org level. Topology = small number of orgs (BU/boundary), templated repos, CODEOWNERS for accountability, custom properties + rulesets for policy-as-data. Avoid per-repo configuration drift.
+
+**Decisions you will be asked to make**
+
+- Single-org vs multi-org topology.
+- Monorepo vs polyrepo per product line.
+- Rulesets — required reviews, signed commits, status checks, deploy keys, bypass actors.
+- Repo templates and custom-properties taxonomy.
+- CODEOWNERS strategy (team vs individual; required vs advisory).
+
+**Top edges**
+
+- Legacy branch protection still works but is the deprecation path — new design must use rulesets.
+- CODEOWNERS at scale: one missing reviewer team blocks every PR.
+- Custom properties are powerful but ungoverned — they become tag-soup fast.
+- Org count > 5 = team-management overhead spirals.
+
+**Connects to**
+
+- [02 Identity & Access](../02-identity-and-access-management/README.md) — teams.
+- [04 GHAS](../04-security-ghas/README.md) — ruleset-driven required checks.
+- [09 Copilot](../09-copilot-in-the-enterprise/README.md) — content exclusions, policies.
+- [16 Risks & Tradeoffs](../16-risks-and-tradeoffs/README.md) — rulesets vs branch protection matrix.
+
+**Customer-fit questions**
+
+- What is the minimum org cardinality your audit / regulatory boundary needs?
+- How many distinct compliance regimes touch your repos?
+- Who is accountable for a ruleset bypass — by name?
+
+---
+
 ## Overview
 
 Governance defines:

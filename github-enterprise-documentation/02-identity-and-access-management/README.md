@@ -4,6 +4,40 @@
 
 ---
 
+## Advisory Gist
+
+**TL;DR.** Standard SSO + SCIM with the customer's IdP, enforce SSO at the enterprise, mandate fine-grained PATs (or GitHub Apps), IdP groups → GitHub teams. EMU only when complete identity isolation is required — and never retro-fitted lightly.
+
+**Decisions you will be asked to make**
+
+- EMU vs Standard (irreversible in practice).
+- IdP: SAML vs OIDC; SCIM provider.
+- Service-to-GitHub auth: GitHub App vs fine-grained PAT (App default).
+- IdP group → team mapping strategy.
+- Break-glass admin model.
+
+**Top edges**
+
+- EMU restricts public-OSS contribution from enterprise identities.
+- SCIM behaviour differs by IdP (Entra ID vs Okta vs Ping); group sync is the most common breakage.
+- Classic PATs bypass org SSO if not enforced — close that hole explicitly.
+- Mannequin reclamation post-migration is its own project (see [14](../14-migration-and-adoption/README.md)).
+
+**Connects to**
+
+- [01 Platform Options](../01-platform-options/README.md) — EMU lives on GHEC.
+- [03 Org & Repo Governance](../03-organization-and-repo-governance/README.md) — teams + CODEOWNERS.
+- [05 Compliance & Audit](../05-compliance-and-audit/README.md) — auth events.
+- [12 Integrations & APIs](../12-integrations-and-apis/README.md) — App-based auth.
+
+**Customer-fit questions**
+
+- Which IdP, and is SCIM already supported there for other SaaS?
+- Do users contribute to public OSS from this identity?
+- What's the SLA for offboarding (SCIM deprovision lag)?
+
+---
+
 ## Overview
 
 IAM in GitHub Enterprise has four layers, applied top-down:

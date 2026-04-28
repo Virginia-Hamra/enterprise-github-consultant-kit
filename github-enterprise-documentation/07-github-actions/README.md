@@ -4,6 +4,41 @@
 
 ---
 
+## Advisory Gist
+
+**TL;DR.** Actions = compute + identity + policy. Standardise on **reusable workflows** for security-critical paths, **OIDC** to clouds (no long-lived secrets), **environments** for prod gates, **required workflows** at the org level, allowed-actions policy enforced. Treat workflow files as production code.
+
+**Decisions you will be asked to make**
+
+- Allowed-actions policy.
+- Required workflows (org-wide guardrails).
+- Environments + protection rules per stage.
+- OIDC trust topology (per-cloud, per-env).
+- Concurrency / queue strategy at scale.
+- GitHub-hosted vs ARC vs static self-hosted (see [08](../08-cicd-and-infrastructure/README.md)).
+
+**Top edges**
+
+- `pull_request_target` privilege escalation — hard policy line.
+- Self-hosted runners on public repos — disallow categorically.
+- Workflow-level secrets vs environment secrets vs org secrets — inheritance is non-obvious.
+- Concurrency contention at scale (10k+ devs) saturates queues; needs SLO + monitoring.
+
+**Connects to**
+
+- [06 Supply Chain](../06-software-supply-chain/README.md) — SHA pinning, OIDC.
+- [08 CI/CD & Infrastructure](../08-cicd-and-infrastructure/README.md) — runners.
+- [15 Cost & Licensing](../15-cost-and-licensing/README.md) — minutes, multipliers, cache.
+- [04 GHAS](../04-security-ghas/README.md) — PR-blocking checks.
+
+**Customer-fit questions**
+
+- What's the customer's existing CI? (Jenkins / ADO / GitLab — modernization target shapes design.)
+- Which clouds + which roles need OIDC trust?
+- What's the SLA for the build platform from the engineering org's POV?
+
+---
+
 ## Overview
 
 | Surface | Purpose |

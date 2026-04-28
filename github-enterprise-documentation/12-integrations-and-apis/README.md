@@ -4,6 +4,40 @@
 
 ---
 
+## Advisory Gist
+
+**TL;DR.** **GitHub App + OIDC** is the default integration pattern. PATs (especially classic) are an exception requiring justification. REST for management, GraphQL for aggregation. Webhooks + eventing bus for downstream systems; never poll. Treat every integration as a tenancy and rate-limit problem.
+
+**Decisions you will be asked to make**
+
+- Auth mechanism per integration (App / fine-grained PAT / OIDC).
+- Webhook delivery topology (direct / bridge / eventing).
+- Rate-limit budget allocation across integrations.
+- ITSM / ticketing system bridge (ADO / Jira / ServiceNow).
+- Internal developer platform (IDP) integration (Backstage / Port).
+
+**Top edges**
+
+- Classic PAT bypasses SSO if not enforced — close it.
+- GraphQL point-budget at scale — pagination + caching matter.
+- Webhook delivery is at-least-once and not ordered — idempotency required.
+- App private keys leaking is the catastrophic case — rotation + KMS-backed storage.
+
+**Connects to**
+
+- [02 Identity & Access](../02-identity-and-access-management/README.md) — App-as-identity.
+- [05 Compliance & Audit](../05-compliance-and-audit/README.md) — streaming target wiring.
+- [07 GitHub Actions](../07-github-actions/README.md) — OIDC.
+- [17 Additional Services § 17.8](../17-additional-services/README.md) — GitHub Apps deep-dive.
+
+**Customer-fit questions**
+
+- How many integrations exist today, and how many are PAT-based?
+- Where does the customer run an event bus that can sit in front of webhooks?
+- Who owns the rotation of every App private key?
+
+---
+
 ## Overview
 
 | Surface | When to use |

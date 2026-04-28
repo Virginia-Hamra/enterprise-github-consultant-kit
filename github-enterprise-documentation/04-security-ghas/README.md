@@ -4,6 +4,40 @@
 
 ---
 
+## Advisory Gist
+
+**TL;DR.** Treat GHAS as **two products** (Code Security + Secret Protection — unbundled in 2024). Default-on at the org level via rulesets, push protection mandatory, default-branch scans + PR-blocking. License only what is committed-to; reclaim quarterly.
+
+**Decisions you will be asked to make**
+
+- Code Security on/off per org/repo (active-committer cost).
+- Secret Protection on/off (cheaper, broader coverage — usually enable everywhere).
+- CodeQL: default vs advanced setup; custom queries.
+- 3rd-party SAST integration vs CodeQL only.
+- Security campaigns: pilot scope.
+
+**Top edges**
+
+- **Active-committer counting** is enterprise-wide unique, not per-repo — finance often miscalculates.
+- CodeQL language coverage gaps (legacy .NET, COBOL, IaC variants) — confirm before quoting.
+- Push-protection bypass logging is critical evidence for audit.
+- Secret scanning custom patterns: false-positive tax if poorly written.
+
+**Connects to**
+
+- [03 Org & Repo Governance](../03-organization-and-repo-governance/README.md) — rulesets enforce required GHAS checks.
+- [05 Compliance & Audit](../05-compliance-and-audit/README.md) — alert lifecycle as evidence.
+- [06 Software Supply Chain](../06-software-supply-chain/README.md) — Dependabot, attestations.
+- [15 Cost & Licensing](../15-cost-and-licensing/README.md) — committer counting.
+
+**Customer-fit questions**
+
+- Which committer threshold is the licensing pivot? (Estimate active uniques.)
+- Which languages are *not* covered by CodeQL today, and what's the fallback?
+- Who triages secret-scanning alerts on day 1?
+
+---
+
 ## Overview
 
 | Capability | What it does |

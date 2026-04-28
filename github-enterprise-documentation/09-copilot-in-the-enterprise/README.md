@@ -4,6 +4,41 @@
 
 ---
 
+## Advisory Gist
+
+**TL;DR.** Copilot Business or Enterprise with **public-code-match off**, **content exclusions** for sensitive paths, **policy-controlled features** (Chat, Coding Agent, Knowledge Bases, Spaces, Extensions, MCP), measured rollout, and a Responsible-AI position the legal team has signed. Track utilisation + reclaim seats.
+
+**Decisions you will be asked to make**
+
+- Copilot Business vs Enterprise (Knowledge Bases, custom models, fine-tuning).
+- Public code suggestion match policy.
+- Content exclusions list and CODEOWNERS pattern.
+- Coding Agent enable / scope (autonomy level + bypass risk).
+- MCP servers allow-list.
+- Metrics surface (engagement, acceptance, retention, business outcome).
+
+**Top edges**
+
+- Coding Agent + permissive rulesets = unsupervised commits to main.
+- Knowledge Bases inherit repo permissions — audit before pointing at private content.
+- Content exclusions are file-glob, not semantic — they miss copy/paste.
+- Some features lag in GHEC-DR / GHES — confirm parity per release.
+
+**Connects to**
+
+- [03 Org & Repo Governance](../03-organization-and-repo-governance/README.md) — ruleset gates for Coding Agent.
+- [04 GHAS](../04-security-ghas/README.md) — Copilot output goes through the same checks.
+- [10 Data & Privacy](../10-data-and-privacy/README.md) — prompt + suggestion data handling.
+- [github-copilot-enablement/](../../github-copilot-enablement/) — rollout playbooks.
+
+**Customer-fit questions**
+
+- What does legal say about model training on prompts?
+- Which paths are content-excluded — by name?
+- Who owns the Copilot RAI position?
+
+---
+
 ## Overview
 
 | SKU (2026) | Audience |

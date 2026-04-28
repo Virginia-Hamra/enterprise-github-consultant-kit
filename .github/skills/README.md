@@ -46,6 +46,20 @@ This directory contains specialized skills for GitHub Enterprise consulting enga
 **Key Deliverables**: Policy definitions, enforcement automation, compliance dashboard, operational runbooks
 **Primary Users**: Platform Engineers, Compliance Officers, Security Teams
 
+### 7. Customer Advisory (`customer-advisory/`)
+
+**Purpose**: End-to-end customer-facing advisory loop — analyse, build deliverables, verify sources, flag edges, recommend best-fit, justify against the customer's constraints
+**Use When**: Working with or on behalf of a customer as a senior consultant — discovery, decision support, deliverable production, third-party review
+**Key Deliverables**: Written recommendations, decision frameworks, technical assessments, architecture specs, meeting packs
+**Primary Users**: Senior Consultants, Solutions Architects, Engagement Leads
+
+### 8. Gist Extraction (`gist-extraction/`)
+
+**Purpose**: Compress dense, complex material (regulations, whitepapers, long docs, threads, transcripts) into layered, decision-ready understanding
+**Use When**: Pre-meeting prep, regulatory review, vendor evaluation, catching up on long-running threads, briefing leaders with a 5-minute window
+**Key Deliverables**: Layered gist (TL;DR → Brief → Deep notes), gap & weasel-word list, action map, comparison rows
+**Primary Users**: Senior Consultants, Advisors, Anyone briefing a leader
+
 ## Skill Structure
 
 Each skill follows a consistent structure:

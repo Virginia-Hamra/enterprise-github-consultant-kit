@@ -4,6 +4,40 @@
 
 ---
 
+## Advisory Gist
+
+**TL;DR.** Pin actions by SHA, sign artifacts (Sigstore / `attest-build-provenance`), generate SBOMs at build, enable Dependabot + dependency review on rulesets, restrict workflows to vetted reusable workflows. Aim at SLSA L3 for production paths.
+
+**Decisions you will be asked to make**
+
+- Allowed actions policy (allow-list vs verified-creators-only).
+- SBOM format (SPDX vs CycloneDX) and where it's stored.
+- Artifact signing model (keyless OIDC vs KMS-backed).
+- Dependabot auto-merge policy.
+- Internal action / reusable-workflow registry.
+
+**Top edges**
+
+- `@v1` pins resolve to mutable refs — supply chain blind spot.
+- Custom actions in private repos still need SHA pinning + review.
+- Dependabot at scale floods PRs — batching + auto-merge needs ruleset rigour.
+- SBOMs are valueless without a downstream consumer (vuln scanner / VRM).
+
+**Connects to**
+
+- [04 GHAS](../04-security-ghas/README.md) — dependency review, secret scanning at build.
+- [07 GitHub Actions](../07-github-actions/README.md) — reusable workflows, OIDC.
+- [08 CI/CD & Infrastructure](../08-cicd-and-infrastructure/README.md) — deployment provenance.
+- [17 Additional Services](../17-additional-services/README.md) — Packages / GHCR.
+
+**Customer-fit questions**
+
+- Which SLSA level does the customer's regulator or buyer require?
+- Who consumes the SBOM (and have they confirmed format)?
+- What is the customer's policy on third-party actions today — governed or open?
+
+---
+
 ## Overview
 
 GitHub's native supply-chain stack:

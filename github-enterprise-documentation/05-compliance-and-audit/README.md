@@ -4,6 +4,40 @@
 
 ---
 
+## Advisory Gist
+
+**TL;DR.** Audit log streaming → SIEM is non-negotiable for any regulated customer. Capture **all** event categories, retain to the regulator's clock, treat the UI log as a debug surface not evidence. Map controls to the customer's framework (SOC2 / ISO27001 / DORA / PCI / NIS2) explicitly.
+
+**Decisions you will be asked to make**
+
+- Streaming target: Splunk / Sentinel / Datadog / S3 / Azure Event Hub.
+- Retention period (regulatory clock vs GitHub's default).
+- Compliance framework mapping (SOC2 / ISO / DORA / NIS2 / PCI / HIPAA).
+- Evidence collection cadence and ownership.
+- Audit log streaming reliability monitoring.
+
+**Top edges**
+
+- The UI audit log is **not** complete enough for evidence; the streaming feed is.
+- A silent streaming outage = compliance gap; alarm on absence of events.
+- Some events are GHEC-only or GHES-only — confirm coverage per platform.
+- DORA / NIS2 obligations cascade to *suppliers* of the customer — GitHub is one.
+
+**Connects to**
+
+- [02 Identity & Access](../02-identity-and-access-management/README.md) — auth events.
+- [04 GHAS](../04-security-ghas/README.md) — security alert lifecycle as evidence.
+- [10 Data & Privacy](../10-data-and-privacy/README.md) — retention boundaries.
+- [12 Integrations & APIs](../12-integrations-and-apis/README.md) — streaming target wiring.
+
+**Customer-fit questions**
+
+- Which framework is the auditor reading against this year?
+- Where does the SIEM live, who owns the GitHub feed, who reviews it?
+- What is the longest retention window any regulator imposes on this tenant?
+
+---
+
 ## Overview
 
 GitHub records:

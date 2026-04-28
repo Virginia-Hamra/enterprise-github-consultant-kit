@@ -4,6 +4,40 @@
 
 ---
 
+## Advisory Gist
+
+**TL;DR.** Default to GHEC. Use GHEC + Data Residency when EU/AU sovereignty is mandated. Use GHES only for air-gap or specific regulatory force. EMU is an *identity* model on GHEC, not a separate platform — decide it alongside identity (02), not here.
+
+**Decisions you will be asked to make**
+
+- GHEC vs GHEC-DR vs GHES (tenancy + residency).
+- EMU vs Standard identity (see [02](../02-identity-and-access/README.md)).
+- Single vs multi-enterprise (M&A, regulated subsidiaries).
+- Hybrid GHES + GHEC via GitHub Connect — yes/no.
+
+**Top edges** (what invalidates the default)
+
+- Air-gap mandate → forces GHES, even when costlier.
+- OSS-contribution requirement → blocks EMU.
+- Specific data-localisation law without EU/AU coverage → forces GHES or rejects GitHub.
+- GHES feature-parity gap for a feature on the customer's roadmap (Copilot, native CodeQL, advanced Actions surfaces lag GHEC).
+
+**Connects to**
+
+- [02 Identity & Access](../02-identity-and-access/README.md) — EMU vs Standard is decided here.
+- [10 Data & Privacy](../10-data-and-privacy/README.md) — residency, retention, GDPR.
+- [11 Networking](../11-networking/README.md) — air-gap, allow-lists, private connectivity.
+- [13 Operational Management](../13-operational-management/README.md) — GHES ops cost.
+- [16 Risks & Tradeoffs](../16-risks-and-tradeoffs/README.md) — full decision matrix.
+
+**Customer-fit questions**
+
+- Where does your data have to live, by *which* regulation, citing which clause?
+- Who operates a self-hosted appliance for the next 3 years?
+- Do any teams need to contribute to public OSS from corporate identities?
+
+---
+
 ## Overview
 
 | Option | What it is |

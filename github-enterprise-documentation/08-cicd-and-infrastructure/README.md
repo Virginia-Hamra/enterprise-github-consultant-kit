@@ -4,6 +4,40 @@
 
 ---
 
+## Advisory Gist
+
+**TL;DR.** GitHub-hosted by default for security + zero-ops. **Actions Runner Controller (ARC)** on Kubernetes for scale, internal-network workloads, and high-volume Linux CI. Static self-hosted only as a last resort (and ephemeral, never persistent). Pair every runner topology with a clear cost + security model.
+
+**Decisions you will be asked to make**
+
+- Runner topology: GitHub-hosted / Larger / ARC / static self-hosted (per workload class).
+- ARC platform: which K8s cluster, which scaling backend, which network policy.
+- Cache and artifact strategy (size, retention, eviction).
+- Deployment pattern: environment + OIDC, or external CD (ArgoCD / Flux)?
+- Build vs deploy separation of duties.
+
+**Top edges**
+
+- macOS runners are 10×, Windows 2× — silent cost driver.
+- Persistent self-hosted runners = lateral-movement risk; ephemeral only.
+- ARC cluster outage = CI outage — needs the same SLO as production.
+- Cache poisoning across branches — scope cache by ref.
+
+**Connects to**
+
+- [07 GitHub Actions](../07-github-actions/README.md) — workflow design.
+- [11 Networking](../11-networking-and-connectivity/README.md) — runner egress, private connectivity.
+- [13 Operational Management](../13-operational-management/README.md) — platform SLO.
+- [15 Cost & Licensing](../15-cost-and-licensing/README.md) — minutes economics.
+
+**Customer-fit questions**
+
+- Where do builds need to reach — internet, internal network, both?
+- Who operates the ARC platform on day 2?
+- What's the cost ceiling per dev per month for CI?
+
+---
+
 ## Overview
 
 This domain is the **architectural pattern** layer that sits on top of [07-github-actions](../07-github-actions/README.md). Decisions here shape every team's pipelines.

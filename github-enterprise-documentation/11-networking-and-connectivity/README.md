@@ -4,6 +4,40 @@
 
 ---
 
+## Advisory Gist
+
+**TL;DR.** Allow-list GitHub IP ranges from the customer's egress, treat the **GitHub meta API as authoritative** (not static lists), use **private connectivity** (Azure Private Link to GHEC where available, VNet-injected ARC for runners). For GHES: TLS, WAF, K8s ingress, network segmentation are *yours* to design.
+
+**Decisions you will be asked to make**
+
+- Egress allow-list source of truth (meta API consumer / automation).
+- IP allow-list for org / enterprise (and Actions implications).
+- Private connectivity (Private Link, Azure VNet, AWS PrivateLink) where supported.
+- GHES topology: front-door, WAF, TLS termination.
+- Webhook ingress (public endpoint vs reverse-proxy vs eventing bridge).
+
+**Top edges**
+
+- IP allow-lists silently break GitHub-hosted runners unless GitHub Actions IPs are explicitly allowed.
+- The meta API list changes — static allow-lists drift to broken.
+- mTLS to webhooks is not natively supported — reverse-proxy patterns required.
+- GHES + WAF: many WAFs false-positive on git protocol traffic.
+
+**Connects to**
+
+- [01 Platform Options](../01-platform-options/README.md) — air-gap forces GHES.
+- [07 GitHub Actions](../07-github-actions/README.md) / [08 CI/CD](../08-cicd-and-infrastructure/README.md) — runner egress.
+- [12 Integrations & APIs](../12-integrations-and-apis/README.md) — webhook reachability.
+- [13 Operational Management](../13-operational-management/README.md) — GHES networking ops.
+
+**Customer-fit questions**
+
+- Is there a hard egress allow-list policy, and who owns it?
+- Where do webhooks need to land — cloud, on-prem, both?
+- Does a WAF sit in the path, and has it been tuned for git?
+
+---
+
 ## Overview
 
 | Direction | Concern |

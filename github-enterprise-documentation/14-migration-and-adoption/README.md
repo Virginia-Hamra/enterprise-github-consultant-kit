@@ -4,6 +4,41 @@
 
 ---
 
+## Advisory Gist
+
+**TL;DR.** Use the **official tools** (`gh gei`, `ado2gh`, `bbs2gh`, `gl2gh`). Migrate in **waves**, not big-bang. Modernise pipelines architecturally (reusable workflows, OIDC, ARC), not 1:1. Pre-resolve LFS + identity mapping. Set a hard cutover date for source CI/CD or pay the dual-platform tax forever.
+
+**Decisions you will be asked to make**
+
+- Wave criteria (size, complexity, risk).
+- Pipeline modernisation depth (lift-and-shift vs re-architect).
+- Identity mapping strategy (mannequin reclamation, SCIM-first).
+- Cutover model (per-wave hard cut vs parallel observation window).
+- Decommission criteria for the source SCM.
+
+**Top edges**
+
+- Bitbucket Server: SSH (port 7999) reachability is the most common blocker.
+- GitLab: API export does not cover all metadata — gap inventory upfront.
+- SVN: missing `authors.txt` → history attributed to `localhost`.
+- Devs continuing to push to old remote post-cutover → split history.
+- External integrations (Jira / Slack) silently broken post-cutover.
+
+**Connects to**
+
+- [02 Identity & Access](../02-identity-and-access-management/README.md) — mannequin reclamation, SCIM.
+- [07 GitHub Actions](../07-github-actions/README.md) — pipeline modernisation.
+- [github-migration-framework/](../../../github-migration-framework/README.md) — wave playbooks.
+- [migrations-github-scripts/](../../../migrations-github-scripts/README.md) — helper scripts.
+
+**Customer-fit questions**
+
+- What is the source SCM, and what is *not* covered by the migration tool?
+- How many waves, and what's the criteria to graduate to the next?
+- What's the agreed sunset date for the source SCM CI/CD?
+
+---
+
 ## Overview
 
 | Source | Tool |

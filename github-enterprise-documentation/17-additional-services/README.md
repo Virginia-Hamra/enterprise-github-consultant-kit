@@ -4,6 +4,40 @@
 
 ---
 
+## Advisory Gist
+
+**TL;DR.** Each of the 12 sub-features here has the same shape: governable, opinionated default, an enterprise-grade pitfall. Decide *which to enable*, who governs each, and how usage is observed. Don't drift into "on by default" for surfaces with data-leak potential (Pages, Gists, Discussions, Codespaces).
+
+**Decisions you will be asked to make**
+
+- Codespaces: enable / machine policy / idle / retention.
+- Packages / GHCR: registry topology + retention.
+- Pages: public + private; per-org enable/disable.
+- Gists: enabled? secret-gist policy.
+- Coding Agent + AI Models: scope (also see [09](../09-copilot-in-the-enterprise/README.md)).
+- Projects: org-level, per-team conventions.
+
+**Top edges**
+
+- Secret gists are URL-only, not access-controlled — routinely confused with private.
+- Pages can publish from internal repos to the public internet by default.
+- Codespaces costs run away without idle + retention enforcement.
+- GitHub Apps with broad scope = lateral-movement risk.
+
+**Connects to**
+
+- [09 Copilot](../09-copilot-in-the-enterprise/README.md) — 17.1 + 17.2 deep-dive there.
+- [12 Integrations & APIs](../12-integrations-and-apis/README.md) — 17.8 GitHub Apps.
+- [15 Cost & Licensing](../15-cost-and-licensing/README.md) — 17.3 / 17.4 economics.
+
+**Customer-fit questions**
+
+- Which of these features is the customer using *unintentionally*?
+- Who owns the policy for each surface?
+- Which surface most likely leaks regulated data first?
+
+---
+
 ## Index
 
 | # | Feature | Status |

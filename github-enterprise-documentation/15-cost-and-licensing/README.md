@@ -4,6 +4,41 @@
 
 ---
 
+## Advisory Gist
+
+**TL;DR.** Licensing = seats (Enterprise, Copilot) + active committers (GHAS, post-2024 unbundle) + consumption (Actions / Packages / Codespaces). Track $ / dev / month as the headline KPI. Spending limits at $0 default — raise deliberately with alerts. Reclaim inactive Copilot + GHAS seats quarterly.
+
+**Decisions you will be asked to make**
+
+- Cost-allocation model (chargeback / showback / shared).
+- Spending limits + alert thresholds per consumption SKU.
+- Copilot Business vs Enterprise (per-team).
+- GHAS scope (which orgs / repos enabled).
+- Runner topology economics (hosted vs ARC break-even).
+
+**Top edges**
+
+- GHAS active-committer = unique enterprise-wide, *not* per-repo — finance miscalculates.
+- macOS multiplier 10×, Windows 2× — silent driver of Actions cost.
+- Codespaces idle → leak; enforce 30-min timeout + 30-day retention.
+- Packages egress to external Kubernetes / dev workstations is billable.
+- "Unlimited" spending limit without alerts → budget overrun.
+
+**Connects to**
+
+- [04 GHAS](../04-security-ghas/README.md) — committer counting.
+- [07 Actions](../07-github-actions/README.md) / [08 CI/CD](../08-cicd-and-infrastructure/README.md) — minutes economics.
+- [09 Copilot](../09-copilot-in-the-enterprise/README.md) — seat reclamation.
+- [17 Additional Services](../17-additional-services/README.md) — Codespaces, Packages.
+
+**Customer-fit questions**
+
+- What's $ / dev / month today, and what's the target?
+- Who reclaims inactive seats, and how often?
+- Which workloads should leave macOS for Linux, and what's the ROM saving?
+
+---
+
 ## Overview
 
 | Component | Billing model |

@@ -4,6 +4,39 @@
 
 ---
 
+## Advisory Gist
+
+**TL;DR.** This domain is the **decision spine** of every engagement. Pair every architectural choice with: a documented matrix, an ADR, and an automation that *enforces* the choice (rulesets / OPA / required workflows). Review annually or on major org change.
+
+**Decisions catalogued here**
+
+- GHEC vs GHEC-DR vs GHES (tenancy + residency).
+- EMU vs Standard (identity).
+- Hosted vs Larger vs ARC vs static self-hosted (runners).
+- Rulesets vs legacy branch protection.
+- REST vs GraphQL.
+
+**Top edges**
+
+- "Evaluate later" → undefined defaults become technical debt.
+- Decisions made in meetings without ADRs → lost.
+- GHES chosen for control then unstaffed.
+- EMU adopted without OSS-contribution analysis.
+
+**Connects to**
+
+- All other 16 domains — this folder is the cross-cut.
+- [solution-architecture-knowledge/enterprise-architecture.md](../../solution-architecture-knowledge/enterprise-architecture.md) — ADR pattern.
+- [deliverables/README.md](../../deliverables/README.md) — Decision Framework deliverable type.
+
+**Customer-fit questions**
+
+- Where do architectural decisions live, and who reads them?
+- When was the last decision-review cycle?
+- For each major decision: what would change the answer?
+
+---
+
 ## Overview
 
 Documented architectural decisions every enterprise must make, with the trade-off space and a recommended default.

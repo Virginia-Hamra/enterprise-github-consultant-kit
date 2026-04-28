@@ -4,6 +4,40 @@
 
 ---
 
+## Advisory Gist
+
+**TL;DR.** For GHEC: ops = config drift + integrations + access. For GHES: ops = above + infra lifecycle (HA, backups, upgrades, capacity). Define **RTO / RPO for GitHub explicitly** — most enterprises don't. Match GitHub Support tier to RTO. Rehearse failover and restore.
+
+**Decisions you will be asked to make**
+
+- RTO / RPO for the GitHub platform.
+- GHES upgrade cadence (security: 30d, feature: 60d).
+- HA topology and failover rehearsal cadence.
+- Backup destination + retention + restore-test cadence.
+- Support tier (Standard / Premium / Premium Plus).
+
+**Top edges**
+
+- GHES HA failover requires re-sync of original primary — documented runbook required.
+- Backups never restored → unverified DR.
+- Disk capacity unmonitored → push outage.
+- GitHub Connect quietly degrades → partial GHES outage that's hard to spot.
+
+**Connects to**
+
+- [01 Platform Options](../01-platform-options/README.md) — GHEC vs GHES ops cost.
+- [11 Networking](../11-networking-and-connectivity/README.md) — GHES network ops.
+- [16 Risks & Tradeoffs](../16-risks-and-tradeoffs/README.md) — hosted vs self-hosted runners.
+- [17 Additional Services](../17-additional-services/README.md) — service-level features.
+
+**Customer-fit questions**
+
+- What's the documented RTO / RPO for GitHub today?
+- Who is on-call for GHES, and what's their runbook?
+- When was the last successful restore-from-backup test?
+
+---
+
 ## Overview
 
 | Surface | GHEC | GHES |

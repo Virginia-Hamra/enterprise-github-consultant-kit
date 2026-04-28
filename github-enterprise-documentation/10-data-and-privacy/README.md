@@ -4,6 +4,40 @@
 
 ---
 
+## Advisory Gist
+
+**TL;DR.** Map every data class the customer holds (PII / PHI / cardholder / regulated source). Default = no regulated data in repos, issues, or wikis. Use **GHEC + Data Residency** for EU/AU sovereignty; **GHES** for hard locality; secret scanning + content exclusions for ongoing hygiene. Document retention against the regulator's clock.
+
+**Decisions you will be asked to make**
+
+- Data classification taxonomy that GitHub will respect.
+- Residency posture (GHEC / GHEC-DR / GHES).
+- Retention windows per data class.
+- DSAR / right-to-erasure response process.
+- Cross-border transfer mechanism (SCCs / DPF).
+
+**Top edges**
+
+- Issues + wikis + discussions are not always covered by the same controls as repos.
+- DSAR on git history is hard — history rewrite is destructive.
+- Logs may be retained longer than data — not always intentional.
+- Copilot prompts can leak regulated content into telemetry if not gated.
+
+**Connects to**
+
+- [01 Platform Options](../01-platform-options/README.md) — residency by platform.
+- [05 Compliance & Audit](../05-compliance-and-audit/README.md) — retention.
+- [04 GHAS](../04-security-ghas/README.md) — secret + sensitive-string scanning.
+- [09 Copilot](../09-copilot-in-the-enterprise/README.md) — prompt data flow.
+
+**Customer-fit questions**
+
+- What's the worst-case data class that *could* land in a repo today?
+- Which regulator dictates location, and what does "location" mean to them?
+- Who handles a DSAR on commits authored 5 years ago?
+
+---
+
 ## Overview
 
 GitHub stores: code, commit metadata, issues, PRs, comments, Actions logs, Packages, Pages content, telemetry, audit logs.
